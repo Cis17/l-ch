@@ -15,23 +15,26 @@
 
   <div class="popup">
     <table *ngIf="!year && !month">
+      Year
       <tr *ngFor="let r of yearMatrix">
         <td *ngFor="let i of r">
-          <button (click)="year = i">{{i}}</button>
+          <button *ngIf="i" (click)="year = i">{{i}}</button>
         </td>
       </tr>
     </table>
 
     <table *ngIf="year && !month">
+      Month
       <tr *ngFor="let r of monthMatrix">
         <td *ngFor="let i of r">
-          <button (click)="month = i">{{i}}</button>
+          <button *ngIf="i" (click)="month = i">{{i}}</button>
         </td>
       </tr>
     </table>
 
-    <table>
-      <tr *ngIf="month">
+    <table *ngIf="month">
+      Day
+      <tr>
         <th>S</th>
         <th>D</th>
         <th>L</th>
@@ -47,4 +50,3 @@
       </tr>
     </table>
   </div>
-

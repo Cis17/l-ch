@@ -86,6 +86,7 @@ input {
 }
 
 .popup {
-  height: 100px;
-  width: 150px;
+  overflow-y: auto;
+  height: 200px;
+  width: 250px;
 }
