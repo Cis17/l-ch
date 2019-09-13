@@ -148,9 +148,9 @@ export class DatePickerComponent implements OnInit {
       && date1.getDate() === date2.getDate();
   }
 
-  private isSameDate2(date1, year, month, day): boolean {
+  private isSelectedDate(year, month, day): boolean {
     const date2 = new Date(year, month - 1, day);
-    return this.isSameDate(date1, date2);
+    return this.isSameDate(this.selectedDate, date2);
   }
 
   isSpecialDate(date): boolean {
