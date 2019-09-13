@@ -1,8 +1,84 @@
 input {
   background-repeat: repeat-x;
   border: 0px solid;
-  height: 25px;
-  width: 125px;
+}
+
+.year {
+  background-color: #BBBBBB;
+  width: 32%;
+  text-align: center;
+}
+
+.month {
+  background-color: #BBBBBB;
+  width: 32%;
+  text-align: center;
+}
+
+.day {
+  background-color: #BBBBBB;
+  width: 32%;
+  text-align: center;
+}
+
+.year::-webkit-input-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.year:-ms-input-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.year:-moz-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.year::-moz-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.month::-webkit-input-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.month:-ms-input-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.month:-moz-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.month::-moz-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.day::-webkit-input-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.day:-ms-input-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.day:-moz-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.day::-moz-placeholder {
+  font-family: 'myFont', Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 .selectedDate {
@@ -15,8 +91,6 @@ input {
 
 .popup {
   overflow-y: auto;
-  height: 178px;
-  width: 250px;
 }
 
 .title {
@@ -27,3 +101,9 @@ input {
   height: 18;
   width: 28;
 }
+
+table {
+  width: 100%;
+}
+
+.menu {}
