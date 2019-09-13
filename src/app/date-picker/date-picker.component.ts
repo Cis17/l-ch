@@ -1,23 +1,14 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'cc-date-picker',
-  template: `
-    <div>
-      <select name="year">
-        <option  value=""></option>
-      </select>
-      <input type="number" name="year">
-      <input type="number" name="month">
-      <input type="number" name="day">
-    </div>
-  `,
-  styles: [],
+  templateUrl: './date-picker.component.html',
+  styleUrls: ['./date-picker.component.css']
   encapsulation: ViewEncapsulation.Native
 })
 export class DatePickerComponent implements OnInit {
 
-  private active: 'year' |'month'|'day' = undefined;
+  private active: 'year' | 'month' | 'day' = undefined;
 
   @Input()
   set min(minDate: string) {
