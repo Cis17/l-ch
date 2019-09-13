@@ -17,7 +17,7 @@
     <div *ngIf="!year && !month">
       <p class="title">Year</p>
       <table>
-        <tr *ngFor="let r of yearMatrix">
+        <tr *ngFor="let r of getDataAsMatrix(years, 5)">
           <td *ngFor="let i of r">
             <button *ngIf="i" (click)="year = i">{{i}}</button>
           </td>
@@ -46,4 +46,4 @@
       </tr>
     </table>
   </div>
->>>>>>> day names and month names as params
+</div>
