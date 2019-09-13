@@ -11,23 +11,32 @@ export class DatePickerComponent implements OnInit {
   private active: 'year' | 'month' | 'day' = undefined;
 
   @Input()
-  set minDate(minDate: string) {
-    this.calculateYears();
-    this._minDate = new Date(minDate);
+  set specialDates(specialDates: Date[]) {
+    this._specialDates = specialDates;
   }
 
-  get minDate(): string {
-    return this._minDate.toString();
+  get specialDates(): Date[] {
+    return this._specialDates;
   }
 
   @Input()
-  set maxDate(maxDate: string) {
+  set minDate(minDate: Date) {
     this.calculateYears();
-    this._maxDate = new Date(maxDate);
+    this._minDate = minDate;
   }
 
-  get maxDate(): string {
-    return this._maxDate.toString();
+  get minDate(): Date {
+    return this._minDate;
+  }
+
+  @Input()
+  set maxDate(maxDate: Date) {
+    this.calculateYears();
+    this._maxDate = maxDate;
+  }
+
+  get maxDate(): Date {
+    return this._maxDate;
   }
 
   @Input()
@@ -82,6 +91,8 @@ export class DatePickerComponent implements OnInit {
   private _year: number;
   private _month: number;
   private _day: number;
+
+  private _specialDates = [];
 
 
   constructor() {
