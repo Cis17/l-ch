@@ -16,7 +16,7 @@
   <div class="popup">
     <table *ngIf="!year && !month">
       Year
-      <tr *ngFor="let r of yearMatrix">
+      <tr *ngFor="let r of getDataAsMatrix(years, 5)">
         <td *ngFor="let i of r">
           <button *ngIf="i" (click)="year = i">{{i}}</button>
         </td>
@@ -25,7 +25,7 @@
 
     <table *ngIf="year && !month">
       Month
-      <tr *ngFor="let r of monthMatrix">
+      <tr *ngFor="let r of getDataAsMatrix(months, 4)">
         <td *ngFor="let i of r">
           <button *ngIf="i" (click)="month = i">{{i}}</button>
         </td>
@@ -43,7 +43,7 @@
         <th>J</th>
         <th>V</th>
       </tr>
-      <tr *ngFor="let r of dayMatrix">
+      <tr *ngFor="let r of getDataAsMatrix(days, 7, firstDateOffset)">
         <td *ngFor="let i of r">
           <button *ngIf="i" [ngClass]="(isSpecialDate2(year,month, i) ? 'specialDate ': '') + ' ' + (isSelectedDate(year,month, i) ? 'selectedDate': '')" (click)="day = i">{{i}}</button>
         </td>

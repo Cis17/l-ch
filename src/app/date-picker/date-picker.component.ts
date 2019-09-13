@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import {isUndefined} from 'util';
 
 @Component({
   selector: 'cc-date-picker',
@@ -92,29 +91,8 @@ export class DatePickerComponent implements OnInit {
     return null;
   }
 
-  get yearMatrix() {
-    const rowCount = Math.ceil(this.years.length / 3.0);
-    return Array.from({length: rowCount}, (v, k) =>
-      Array.from({length: 3}, (w, l) => this.years[k*3 + l])
-    );
-  }
-
-  get monthMatrix() {
-    const rowCount = Math.ceil(this.months.length / 4.0);
-    return Array.from({length: rowCount}, (v, k) =>
-      Array.from({length: 4}, (w, l) => this.months[k*4 + l])
-    );
-  }
-
-  get dayMatrix() {
-    const date =  new Date(this.year, this.month - 1, 1);
-    const offsetDays = Array.from({length:  date.getDay()}, (v, k) => undefined);
-    const fixedDays = offsetDays.concat(this.days);
-
-    const rowCount = Math.ceil(fixedDays.length / 7.0);
-    return Array.from({length: rowCount}, (v, k) =>
-      Array.from({length: 7}, (w, l) => fixedDays[k*7 + l])
-    );
+  get firstDateOffset() {
+    return new Date(this.year, this.month, 1).getDay();
   }
 
   private _minDate = new Date('2018-01-01');
@@ -160,5 +138,15 @@ export class DatePickerComponent implements OnInit {
 
   isSpecialDate2(year, month, day): boolean {
     return this.isSpecialDate(new Date(year, month - 1, day));
+  }
+
+  getDataAsMatrix(myArray, cols, offset?) {
+    const offsetDays = offset ? Array.from({length:  offset}, (v, k) => undefined) : [];
+    const myArrayWithOffset = offsetDays.concat(myArray);
+
+    const rowCount = Math.ceil(myArrayWithOffset.length / cols);
+    return Array.from({length: rowCount}, (v, k) =>
+      Array.from({length: cols}, (w, l) => myArrayWithOffset[k * cols + l])
+    );
   }
 }
