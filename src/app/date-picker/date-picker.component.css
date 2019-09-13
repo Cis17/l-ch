@@ -84,3 +84,8 @@ input {
 .specialDate {
   color: blue;
 }
+
+.popup {
+  height: 100px;
+  width: 150px;
+}

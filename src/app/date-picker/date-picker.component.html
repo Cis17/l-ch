@@ -1,7 +1,6 @@
-
 <div>
   <p *ngIf="selectedDate && isSpecialDate(selectedDate)">Special Date Selected </p>
-  <select name="year" [(ngModel)]="year" >
+  <select name="year" [(ngModel)]="year">
     <option value="" disabled>Year</option>
     <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
   </select>
@@ -13,46 +12,39 @@
     <option value="" disabled>Day</option>
     <option *ngFor="let d  of days" value="{{d}}">{{d}}</option>
   </select>
-  <table >
-    <tr>
-      <th>Year</th>
-      <th>Moth</th>
-      <th>Day</th>
-    </tr>
-    <tr>
-      <td>
-        <div style="height: 100px; overflow: scroll">
-          <table  >
-            <tr *ngFor="let r of yearMatrix">
-              <td *ngFor="let i of r">
-                <button (click)="year = i">{{i}}</button>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-      <td>
-        <div>
-          <table>
-            <tr *ngFor="let r of monthMatrix">
-              <td *ngFor="let i of r">
-                <button (click)="month = i">{{i}}</button>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-      <td>
-        <div>
-          <table>
-            <tr *ngFor="let r of dayMatrix">
-              <td *ngFor="let i of r">
-                <button [ngClass]="(isSpecialDate2(year,month, i) ? 'specialDate ': '') + ' ' + (isSameDate2(selectedDate, year,month, i) ? 'selectedDate': '')" (click)="day = i">{{i}}</button>
-              </td>
-            </tr>
-          </table>
-        </div>
-      </td>
-    </tr>
-  </table>
-</div>
+
+  <div class="popup">
+    <table *ngIf="!year && !month">
+      <tr *ngFor="let r of yearMatrix">
+        <td *ngFor="let i of r">
+          <button (click)="year = i">{{i}}</button>
+        </td>
+      </tr>
+    </table>
+
+    <table *ngIf="year && !month">
+      <tr *ngFor="let r of monthMatrix">
+        <td *ngFor="let i of r">
+          <button (click)="month = i">{{i}}</button>
+        </td>
+      </tr>
+    </table>
+
+    <table>
+      <tr *ngIf="month">
+        <th>S</th>
+        <th>D</th>
+        <th>L</th>
+        <th>M</th>
+        <th>M</th>
+        <th>J</th>
+        <th>V</th>
+      </tr>
+      <tr *ngFor="let r of dayMatrix">
+        <td *ngFor="let i of r">
+          <button [ngClass]="isSpecialDate2(year,month, i) ? 'specialDate ': ' ' + ( isSameDate2(selectedDate, year,month, i)) ? 'selectedDate': ''" (click)="day = i">{{i}}</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
