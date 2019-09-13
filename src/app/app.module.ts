@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {Injector, NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import {FormsModule} from '@angular/forms';
+import {createCustomElement} from '@angular/elements';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,13 @@ import {FormsModule} from '@angular/forms';
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ]
+  entryComponents: [DatePickerComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private injector: Injector) { }
+
+  ngDoBootstrap() {
+    const customElement = createCustomElement(DatePickerComponent, {injector: this.injector});
+    customElements.define('lich-date-picker', customElement);
+  }
+}

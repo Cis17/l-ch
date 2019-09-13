@@ -4,11 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --output-hashing=none",
+    "package": "cat ./dist/lich/runtime.js ./dist/lich/polyfills.js ./dist/lich/scripts.js ./dist/lich/main.js > lich-date-picker-element.js",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.0.0",

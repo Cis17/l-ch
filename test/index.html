@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lịch!</title>
+  <script src="../lich-date-picker-element.js"></script>
+</head>
+<body>
+  <h1>Hola sexys esto es lịch!</h1>
+
+  <lich-date-picker id="date-picker1"></lich-date-picker>
+  <lich-date-picker id="date-picker2"></lich-date-picker>
+
+  <script>
+    const datePicker1 = document.getElementById('date-picker1');
+     const datePicker2 = document.getElementById('date-picker2');
+    datePicker1.specialDates = [
+      new Date(2019, 8, 13)
+    ];
+    datePicker1.weekNames = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+    datePicker2.weekNames = ['C', 'I', 'S', '/', 'T', 'I', 'S'];
+  </script>
+
+
+</body>
+</html>
