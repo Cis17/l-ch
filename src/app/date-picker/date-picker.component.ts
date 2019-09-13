@@ -142,25 +142,20 @@ export class DatePickerComponent implements OnInit {
   }
 
   private isSameDate(date1, date2) {
-    return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
+    return !(date1 === null)
+      && date1.getFullYear() === date2.getFullYear()
+      && date1.getMonth() === date2.getMonth()
+      && date1.getDate() === date2.getDate();
   }
 
   private isSameDate2(date1, year, month, day): boolean {
     const date2 = new Date(year, month - 1, day);
-    const result =  !(date1 === null)
-      && date1.getFullYear() === date2.getFullYear()
-      && date1.getMonth() === date2.getMonth()
-      && date1.getDate() === date2.getDate();
-    console.log(result);
-    return result;
+    return this.isSameDate(date1, date2);
   }
 
   isSpecialDate(date): boolean {
     const result = this._specialDates.find( (d: Date) => this.isSameDate(d, date) );
-    if (result === undefined) {
-      return  false;
-    }
-    return true;
+    return result !== undefined;
   }
 
   isSpecialDate2(year, month, day): boolean {
