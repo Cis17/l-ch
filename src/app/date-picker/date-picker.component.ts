@@ -11,6 +11,24 @@ export class DatePickerComponent implements OnInit {
   private active: 'year' | 'month' | 'day' = undefined;
 
   @Input()
+  set weekNames(weekNames: string[]) {
+    this._weekHeaders = Array.from({length: 7}, (v, k) => weekNames[k]);
+  }
+
+  get weekNames(): string[] {
+    return this._weekHeaders;
+  }
+
+  @Input()
+  set monthNames(monthNames: string[]) {
+    this._monthNames = Array.from({length: 12}, (v, k) => monthNames[k]);
+  }
+
+  get monthNames(): string[] {
+    return this._monthNames;
+  }
+
+  @Input()
   set specialDates(specialDates: Date[]) {
     this._specialDates = specialDates;
   }
@@ -97,6 +115,8 @@ export class DatePickerComponent implements OnInit {
 
   private _minDate = new Date('2018-01-01');
   private _maxDate = new Date('2039-12-31');
+  private _weekHeaders = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+  private _monthNames = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dic.'];
 
   private _years = [];
   private _year: number;

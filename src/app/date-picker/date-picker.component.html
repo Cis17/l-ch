@@ -25,33 +25,25 @@
       </table>
     </div>
 
-    <div *ngIf="year && !month">
-      <p class="title">Month</p>
-      <table>
-        <tr *ngFor="let r of monthMatrix">
-          <td *ngFor="let i of r">
-            <button class="month-button" *ngIf="i" (click)="month = i">{{i}}</button>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <table *ngIf="year && !month">
+      Month
+      <tr *ngFor="let r of getDataAsMatrix(months, 4)">
+        <td *ngFor="let i of r">
+          <button *ngIf="i" (click)="month = i">{{monthNames[i -1]}}</button>
+        </td>
+      </tr>
+    </table>
 
-    <div *ngIf="month">
-      <p class="title">Day</p>
-      <table>
-        <tr>
-          <th>S</th>
-          <th>D</th>
-          <th>L</th>
-          <th>M</th>
-          <th>M</th>
-          <th>J</th>
-          <th>V</th>
-        </tr>
-        <tr *ngFor="let r of dayMatrix">
-          <td *ngFor="let i of r">
-            <button *ngIf="i" [ngClass]="(isSpecialDate2(year,month, i) ? 'specialDate ': '') + ' ' + (isSelectedDate(year,month, i) ? 'selectedDate': '')" (click)="day = i">{{i}}</button>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <table *ngIf="month">
+      Day
+      <tr>
+        <th *ngFor="let dayName of weekNames">{{dayName}}</th>
+      </tr>
+      <tr *ngFor="let r of getDataAsMatrix(days, 7, firstDateOffset)">
+        <td *ngFor="let i of r">
+          <button *ngIf="i" [ngClass]="(isSpecialDate2(year,month, i) ? 'specialDate ': '') + ' ' + (isSelectedDate(year,month, i) ? 'selectedDate': '')" (click)="day = i">{{i}}</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+>>>>>>> day names and month names as params
