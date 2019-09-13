@@ -5,14 +5,9 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'lich';
   specialDates = [
     new Date(2019, 8, 13)
   ];
-  ngOnInit(): void {
-    this.specialDates.forEach(d => {
-      console.log(d.toString());
-    });
-  }
 }

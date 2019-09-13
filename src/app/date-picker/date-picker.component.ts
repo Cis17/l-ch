@@ -13,6 +13,23 @@ export class DatePickerComponent implements OnInit {
   showPopup: boolean;
 
   @Input()
+  set specialDayClass(rootClass: string) {
+    this._specialDayClass = rootClass;
+  }
+
+  get specialDayClass(): string {
+    return this._specialDayClass;
+  }
+
+  @Input()
+  set rootClass(rootClass: string) {
+    this._rootClass = rootClass;
+  }
+
+  get rootClass(): string {
+    return this._rootClass;
+  }
+  @Input()
   set weekNames(weekNames: string[]) {
     this._weekHeaders = Array.from({ length: 7 }, (v, k) => weekNames[k]);
   }
@@ -86,7 +103,6 @@ export class DatePickerComponent implements OnInit {
       this.showPopup = false;
     } else {
       this.showPopup = true;
-
     }
   }
 
@@ -117,13 +133,19 @@ export class DatePickerComponent implements OnInit {
     return null;
   }
 
+  get monthName() {
+    return this.monthNames[this.month - 1];
+  }
+
   get firstDateOffset() {
     return new Date(this.year, this.month, 1).getDay();
   }
 
+  private _rootClass = 'date-picker-root';
+  private _specialDayClass = 'lich-date-picker-special-date';
   private _minDate = new Date('2018-01-01');
   private _maxDate = new Date('2039-12-31');
-  private _weekHeaders = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+  private _weekHeaders = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   private _monthNames = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dic.'];
 
   private _years = [];
@@ -157,11 +179,6 @@ export class DatePickerComponent implements OnInit {
       && date1.getFullYear() === date2.getFullYear()
       && date1.getMonth() === date2.getMonth()
       && date1.getDate() === date2.getDate();
-  }
-
-  private isSelectedDate(year, month, day): boolean {
-    const date2 = new Date(year, month - 1, day);
-    return this.isSameDate(this.selectedDate, date2);
   }
 
   isSpecialDate(date): boolean {

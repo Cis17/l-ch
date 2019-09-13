@@ -1,109 +1,105 @@
-input {
+cc-date-picker input {
   background-repeat: repeat-x;
   border: 0px solid;
 }
 
-.year {
+.lich-date-picker-basic {
+
+}
+.lich-date-picker-basic button {
+  height: 100%;
+  width: 100%;
+}
+.lich-date-picker-year {
   background-color: #DDDDDD;
-  width: 32%;
+  width: 31%;
   text-align: center;
 }
 
-.month {
+.lich-date-picker-month {
   background-color: #DDDDDD;
-  width: 32%;
+  width: 31%;
   text-align: center;
 }
 
-.day {
+.lich-date-picker-day {
   background-color: #DDDDDD;
-  width: 32%;
+  width: 31%;
   text-align: center;
 }
 
-.year::-webkit-input-placeholder {
+.lich-date-picker-year::-webkit-input-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.year:-ms-input-placeholder {
+.lich-date-picker-year:-ms-input-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.year:-moz-placeholder {
+.lich-date-picker-year:-moz-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.year::-moz-placeholder {
+.lich-date-picker-year::-moz-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.month::-webkit-input-placeholder {
+.lich-date-picker-month::-webkit-input-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.month:-ms-input-placeholder {
+.lich-date-picker-month:-ms-input-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.month:-moz-placeholder {
+.lich-date-picker-month:-moz-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.month::-moz-placeholder {
+.lich-date-picker-month::-moz-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.day::-webkit-input-placeholder {
+.lich-date-picker-day::-webkit-input-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.day:-ms-input-placeholder {
+.lich-date-picker-day:-ms-input-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.day:-moz-placeholder {
+.lich-date-picker-day:-moz-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.day::-moz-placeholder {
+.lich-date-picker-day::-moz-placeholder {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
-.selectedDate {
-  background: aqua;
-}
-
-.specialDate {
+.lich-date-picker-special-date {
   color: blue;
 }
 
-.popup {
+.lich-date-picker-popup {
   overflow-y: auto;
 }
 
-.title {
+.lich-date-picker-title {
   text-align: center;
-}
-
-.month-button {
-  height: 18;
-  width: 28;
 }
 
 table {
   width: 100%;
 }
-
-.menu {}
