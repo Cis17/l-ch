@@ -47,7 +47,7 @@
           <table>
             <tr *ngFor="let r of dayMatrix">
               <td *ngFor="let i of r">
-                <button [ngClass]="isSpecialDate2(year,month, i) ? 'specialDate ': ' ' + ( isSameDate2(selectedDate, year,month, i)) ? 'selectedDate': ''" (click)="day = i">{{i}}</button>
+                <button [ngClass]="isSpecialDate2(year,month, i) ? 'specialDate ': ' ' + (isSameDate2(selectedDate, year,month, i) ? 'selectedDate': '')" (click)="day = i">{{i}}</button>
               </td>
             </tr>
           </table>

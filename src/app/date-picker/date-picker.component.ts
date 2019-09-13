@@ -117,7 +117,7 @@ export class DatePickerComponent implements OnInit {
     );
   }
 
-  private _minDate = new Date('1990-01-01');
+  private _minDate = new Date('2018-01-01');
   private _maxDate = new Date('2039-12-31');
 
   private _years = [];
@@ -147,20 +147,23 @@ export class DatePickerComponent implements OnInit {
 
   private isSameDate2(date1, year, month, day): boolean {
     const date2 = new Date(year, month - 1, day);
-    console.log(date1, date2);
-    return date1 != null
+    const result =  !(date1 === null)
       && date1.getFullYear() === date2.getFullYear()
       && date1.getMonth() === date2.getMonth()
       && date1.getDate() === date2.getDate();
-  }
-
-  isSpecialDate(date) {
-    const result = this._specialDates.find( (d: Date) => this.isSameDate(d, date) );
     console.log(result);
-    return result !== undefined;
+    return result;
   }
 
-  isSpecialDate2(year, month, day) {
+  isSpecialDate(date): boolean {
+    const result = this._specialDates.find( (d: Date) => this.isSameDate(d, date) );
+    if (result === undefined) {
+      return  false;
+    }
+    return true;
+  }
+
+  isSpecialDate2(year, month, day): boolean {
     return this.isSpecialDate(new Date(year, month - 1, day));
   }
 }
