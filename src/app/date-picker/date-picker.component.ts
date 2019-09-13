@@ -69,15 +69,6 @@ export class DatePickerComponent implements OnInit {
     return this._day;
   }
 
-  get isSpecialDate() {
-    const result = this._specialDates.find( (d: Date) => {
-      console.log(d.toString(), this.selectedDate.toString());
-      console.log(d.getTime(), this.selectedDate.getTime());
-      return d.getTime() === this.selectedDate.getTime();
-    } );
-    console.log(result);
-    return result !== undefined;
-  }
   get years() {
     return this._years;
   }
@@ -126,8 +117,8 @@ export class DatePickerComponent implements OnInit {
     );
   }
 
-  private _minDate = new Date('1900-01-01');
-  private _maxDate = new Date('3000-12-31');
+  private _minDate = new Date('1990-01-01');
+  private _maxDate = new Date('2039-12-31');
 
   private _years = [];
   private _year: number;
@@ -148,5 +139,28 @@ export class DatePickerComponent implements OnInit {
     const minYear = this._minDate.getFullYear();
     const maxYear = this._maxDate.getFullYear();
     this._years = Array.from({length: maxYear - minYear + 1}, (v, k) => k + minYear);
+  }
+
+  private isSameDate(date1, date2) {
+    return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
+  }
+
+  private isSameDate2(date1, year, month, day): boolean {
+    const date2 = new Date(year, month - 1, day);
+    console.log(date1, date2);
+    return date1 != null
+      && date1.getFullYear() === date2.getFullYear()
+      && date1.getMonth() === date2.getMonth()
+      && date1.getDate() === date2.getDate();
+  }
+
+  isSpecialDate(date) {
+    const result = this._specialDates.find( (d: Date) => this.isSameDate(d, date) );
+    console.log(result);
+    return result !== undefined;
+  }
+
+  isSpecialDate2(year, month, day) {
+    return this.isSpecialDate(new Date(year, month - 1, day));
   }
 }

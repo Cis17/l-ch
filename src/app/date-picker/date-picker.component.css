@@ -76,3 +76,11 @@ input {
   font-family: 'myFont', Arial, Helvetica, sans-serif;
   text-align: center;
 }
+
+.selectedDate {
+  background: aqua;
+}
+
+.specialDate {
+  color: blue;
+}
