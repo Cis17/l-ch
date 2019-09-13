@@ -1,5 +1,6 @@
 
 <div>
+  <p *ngIf="selectedDate && isSpecialDate">Special Date Selected </p>
   <select name="year" [(ngModel)]="year" >
     <option value="" disabled>Year</option>
     <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
@@ -12,4 +13,46 @@
     <option value="" disabled>Day</option>
     <option *ngFor="let d  of days" value="{{d}}">{{d}}</option>
   </select>
+  <table>
+    <tr>
+      <th>Year</th>
+      <th>Moth</th>
+      <th>Day</th>
+    </tr>
+    <tr>
+      <td>
+        <div>
+          <table>
+            <tr *ngFor="let r of yearMatrix">
+              <td *ngFor="let i of r">
+                <button (click)="year = i">{{i}}</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          <table>
+            <tr *ngFor="let r of monthMatrix">
+              <td *ngFor="let i of r">
+                <button (click)="month = i">{{i}}</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td>
+        <div>
+          <table>
+            <tr *ngFor="let r of dayMatrix">
+              <td *ngFor="let i of r">
+                <button (click)="day = i">{{i}}</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </table>
 </div>

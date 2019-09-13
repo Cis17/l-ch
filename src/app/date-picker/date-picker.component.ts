@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {isUndefined} from 'util';
 
 @Component({
   selector: 'cc-date-picker',
@@ -68,6 +69,15 @@ export class DatePickerComponent implements OnInit {
     return this._day;
   }
 
+  get isSpecialDate() {
+    const result = this._specialDates.find( (d: Date) => {
+      console.log(d.toString(), this.selectedDate.toString());
+      console.log(d.getTime(), this.selectedDate.getTime());
+      return d.getTime() === this.selectedDate.getTime();
+    } );
+    console.log(result);
+    return result !== undefined;
+  }
   get years() {
     return this._years;
   }
@@ -82,6 +92,38 @@ export class DatePickerComponent implements OnInit {
     }
     const days = new Date(this.year, this.month, 0).getDate();
     return Array.from({length: days}, (v, k) => k + 1);
+  }
+
+  get selectedDate(): Date {
+    if (this.year && this.month && this.day) {
+      return new Date(this.year, this.month - 1, this.day);
+    }
+    return null;
+  }
+
+  get yearMatrix() {
+    const rowCount = Math.ceil(this.years.length / 3.0);
+    return Array.from({length: rowCount}, (v, k) =>
+      Array.from({length: 3}, (w, l) => this.years[k*3 + l])
+    );
+  }
+
+  get monthMatrix() {
+    const rowCount = Math.ceil(this.months.length / 4.0);
+    return Array.from({length: rowCount}, (v, k) =>
+      Array.from({length: 4}, (w, l) => this.months[k*4 + l])
+    );
+  }
+
+  get dayMatrix() {
+    const date =  new Date(this.year, this.month - 1, 1);
+    const offsetDays = Array.from({length:  date.getDay()}, (v, k) => undefined);
+    const fixedDays = offsetDays.concat(this.days);
+
+    const rowCount = Math.ceil(fixedDays.length / 7.0);
+    return Array.from({length: rowCount}, (v, k) =>
+      Array.from({length: 7}, (w, l) => fixedDays[k*7 + l])
+    );
   }
 
   private _minDate = new Date('1900-01-01');
