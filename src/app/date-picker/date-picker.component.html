@@ -1,26 +1,14 @@
 <div>
   <div class="menu">
-    <input type="text" name="year" class="year" placeholder="YYYY" [(ngModel)]="year" disabled>
-    <input type="text" name="month" class="month" placeholder="MM" [(ngModel)]="month" disabled>
-    <input type="text" name="day" class="day" placeholder="DD" [(ngModel)]="day" disabled>
+    <input type="text" name="year" class="year" placeholder="YYYY" [(ngModel)]="year" (click)="cleanYear()" readonly>
+    <input type="text" name="month" class="month" placeholder="MM" [(ngModel)]="month" (click)="month=undefined" readonly>
+    <input type="text" name="day" class="day" placeholder="DD" [(ngModel)]="day" (click)="day=undefined" readonly>
     <p *ngIf="selectedDate && isSpecialDate(selectedDate)">Special Date Selected </p>
-    <!-- <select name="year" [(ngModel)]="year">
-      <option value="" disabled>Year</option>
-      <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
-    </select>
-    <select name="month" [(ngModel)]="month" [disabled]="!year">
-      <option value="" disabled>Month</option>
-      <option *ngFor="let m  of months" value="{{m}}">{{m}}</option>
-    </select>
-    <select name="day" [(ngModel)]="day" [disabled]="!month">
-      <option value="" disabled>Day</option>
-      <option *ngFor="let d  of days" value="{{d}}">{{d}}</option>
-    </select> -->
   </div>
 
-  <div class="popup">
+  <div class="popup" *ngIf="showPopup">
+
     <div *ngIf="!year && !month">
-      <p class="title">Year</p>
       <table>
         <tr *ngFor="let r of getDataAsMatrix(years, 5)">
           <td *ngFor="let i of r">
@@ -31,7 +19,6 @@
     </div>
 
     <table *ngIf="year && !month">
-      <p class="title">Month</p>
       <tr *ngFor="let r of getDataAsMatrix(months, 4)">
         <td *ngFor="let i of r">
           <button *ngIf="i" (click)="month = i">{{monthNames[i -1]}}</button>
@@ -40,7 +27,6 @@
     </table>
 
     <table *ngIf="month">
-      <p class="title">Day</p>
       <tr>
         <th *ngFor="let dayName of weekNames">{{dayName}}</th>
       </tr>

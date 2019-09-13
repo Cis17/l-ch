@@ -4,19 +4,19 @@ input {
 }
 
 .year {
-  background-color: #BBBBBB;
+  background-color: #DDDDDD;
   width: 32%;
   text-align: center;
 }
 
 .month {
-  background-color: #BBBBBB;
+  background-color: #DDDDDD;
   width: 32%;
   text-align: center;
 }
 
 .day {
-  background-color: #BBBBBB;
+  background-color: #DDDDDD;
   width: 32%;
   text-align: center;
 }

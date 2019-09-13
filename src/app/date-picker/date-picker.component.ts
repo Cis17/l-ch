@@ -10,9 +10,11 @@ export class DatePickerComponent implements OnInit {
 
   private active: 'year' | 'month' | 'day' = undefined;
 
+  showPopup: boolean;
+
   @Input()
   set weekNames(weekNames: string[]) {
-    this._weekHeaders = Array.from({length: 7}, (v, k) => weekNames[k]);
+    this._weekHeaders = Array.from({ length: 7 }, (v, k) => weekNames[k]);
   }
 
   get weekNames(): string[] {
@@ -21,7 +23,7 @@ export class DatePickerComponent implements OnInit {
 
   @Input()
   set monthNames(monthNames: string[]) {
-    this._monthNames = Array.from({length: 12}, (v, k) => monthNames[k]);
+    this._monthNames = Array.from({ length: 12 }, (v, k) => monthNames[k]);
   }
 
   get monthNames(): string[] {
@@ -80,6 +82,12 @@ export class DatePickerComponent implements OnInit {
   @Input()
   set day(day: number) {
     this._day = day;
+    if (day !== undefined) {
+      this.showPopup = false;
+    } else {
+      this.showPopup = true;
+
+    }
   }
 
   get day() {
@@ -91,7 +99,7 @@ export class DatePickerComponent implements OnInit {
   }
 
   get months() {
-    return Array.from({length: 12}, (v, k) => k + 1);
+    return Array.from({ length: 12 }, (v, k) => k + 1);
   }
 
   get days() {
@@ -99,7 +107,7 @@ export class DatePickerComponent implements OnInit {
       return [];
     }
     const days = new Date(this.year, this.month, 0).getDate();
-    return Array.from({length: days}, (v, k) => k + 1);
+    return Array.from({ length: days }, (v, k) => k + 1);
   }
 
   get selectedDate(): Date {
@@ -133,10 +141,15 @@ export class DatePickerComponent implements OnInit {
   ngOnInit() {
   }
 
+  cleanYear() {
+    this.showPopup = true;
+    this.year = undefined;
+  }
+
   private calculateYears() {
     const minYear = this._minDate.getFullYear();
     const maxYear = this._maxDate.getFullYear();
-    this._years = Array.from({length: maxYear - minYear + 1}, (v, k) => k + minYear);
+    this._years = Array.from({ length: maxYear - minYear + 1 }, (v, k) => k + minYear);
   }
 
   private isSameDate(date1, date2) {
@@ -152,7 +165,7 @@ export class DatePickerComponent implements OnInit {
   }
 
   isSpecialDate(date): boolean {
-    const result = this._specialDates.find( (d: Date) => this.isSameDate(d, date) );
+    const result = this._specialDates.find((d: Date) => this.isSameDate(d, date));
     return result !== undefined;
   }
 
@@ -161,12 +174,12 @@ export class DatePickerComponent implements OnInit {
   }
 
   getDataAsMatrix(myArray, cols, offset?) {
-    const offsetDays = offset ? Array.from({length:  offset}, (v, k) => undefined) : [];
+    const offsetDays = offset ? Array.from({ length: offset }, (v, k) => undefined) : [];
     const myArrayWithOffset = offsetDays.concat(myArray);
 
     const rowCount = Math.ceil(myArrayWithOffset.length / cols);
-    return Array.from({length: rowCount}, (v, k) =>
-      Array.from({length: cols}, (w, l) => myArrayWithOffset[k * cols + l])
+    return Array.from({ length: rowCount }, (v, k) =>
+      Array.from({ length: cols }, (w, l) => myArrayWithOffset[k * cols + l])
     );
   }
 }
