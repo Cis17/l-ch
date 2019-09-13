@@ -5,78 +5,6 @@ input {
   width: 125px;
 }
 
-.year {
-  background-color: #BBBBBB
-}
-
-.month {
-  background-color: #BBBBBB
-}
-
-.day {
-  background-color: #BBBBBB
-}
-
-.year::-webkit-input-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.year:-ms-input-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.year:-moz-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.year::-moz-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.month::-webkit-input-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.month:-ms-input-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.month:-moz-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.month::-moz-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.day::-webkit-input-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.day:-ms-input-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.day:-moz-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
-.day::-moz-placeholder {
-  font-family: 'myFont', Arial, Helvetica, sans-serif;
-  text-align: center;
-}
-
 .selectedDate {
   background: aqua;
 }
@@ -87,6 +15,15 @@ input {
 
 .popup {
   overflow-y: auto;
-  height: 200px;
+  height: 178px;
   width: 250px;
+}
+
+.title {
+  text-align: center;
+}
+
+.month-button {
+  height: 18;
+  width: 28;
 }
