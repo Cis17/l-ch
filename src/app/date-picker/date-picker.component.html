@@ -1,8 +1,15 @@
+
 <div>
-  <select name="year">
-    <option value=""></option>
+  <select name="year" [(ngModel)]="year" >
+    <option value="" disabled>Year</option>
+    <option *ngFor="let y of years" value="{{y}}">{{y}}</option>
   </select>
-  <input type="number" name="year" class="year" placeholder="YYYY">
-  <input type="number" name="month" class="month" placeholder="MM">
-  <input type="number" name="day" class="day" placeholder="DD">
+  <select name="month" [(ngModel)]="month" [disabled]="!year">
+    <option value="" disabled>Month</option>
+    <option *ngFor="let m  of months" value="{{m}}">{{m}}</option>
+  </select>
+  <select name="day" [(ngModel)]="day" [disabled]="!month">
+    <option value="" disabled>Day</option>
+    <option *ngFor="let d  of days" value="{{d}}">{{d}}</option>
+  </select>
 </div>
