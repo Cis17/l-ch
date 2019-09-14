@@ -11,6 +11,7 @@ export class DatePickerComponent implements OnInit {
   private active: 'year' | 'month' | 'day' = undefined;
 
   showPopup: boolean;
+  finalDate: Date;
 
   @Input()
   set specialDayClass(rootClass: string) {
@@ -20,6 +21,16 @@ export class DatePickerComponent implements OnInit {
   get specialDayClass(): string {
     return this._specialDayClass;
   }
+
+  @Input()
+  dateFormat: string;
+  // set dateFormat(format: string) {
+  //   this._format = format;
+  // }
+  //
+  // get dateFormat(): string {
+  //   return this._format;
+  // }
 
   @Input()
   set rootClass(rootClass: string) {
@@ -104,6 +115,7 @@ export class DatePickerComponent implements OnInit {
     } else {
       this.showPopup = true;
     }
+    this.finalDate = new Date(this.year, this.month - 1, day, 0, 0, 0, 0);
   }
 
   get day() {
@@ -152,8 +164,11 @@ export class DatePickerComponent implements OnInit {
   private _year: number;
   private _month: number;
   private _day: number;
+  private _format: string;
 
   private _specialDates = [];
+
+  other = 'dd-MM-yyyy';
 
 
   constructor() {

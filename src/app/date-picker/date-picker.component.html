@@ -4,6 +4,10 @@
     <input [ngClass]="showPopup && !month && year ? 'lich-date-picker-hight-light':''" type="text" name="month" class="lich-date-picker-month" placeholder="MM" [value]="month ? monthName: ''" (click)="month=undefined" readonly>
     <input [ngClass]="showPopup && !day && year && month? 'lich-date-picker-hight-light':''" type="text" name="day" class="lich-date-picker-day" placeholder="DD" [value]="day ? day : ''" (click)="day=undefined" readonly>
     <p *ngIf="selectedDate && isSpecialDate(selectedDate)">Special Date Selected </p>
+    <div *ngIf="selectedDate">
+      <p>{{dateFormat}}</p>
+      <p>{{ finalDate | date: dateFormat }}</p>
+    </div>
   </div>
 
   <div class="lich-date-picker-popup" *ngIf="showPopup">
