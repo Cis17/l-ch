@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>Lịch!</title>
   <script src="../lich-date-picker-element.js"></script>
+  <style>
+    .selected {
+      color: red;
+    }
+  </style>
 </head>
 <body>
   <h1>Hola sexys esto es lịch!</h1>
@@ -13,16 +18,25 @@
   <lich-date-picker id="date-picker2"></lich-date-picker>
   <p id="selected2"></p>
 
+  <lich-date-picker id="date-picker3"></lich-date-picker>
+
   <script>
     const datePicker1 = document.getElementById('date-picker1');
      const datePicker2 = document.getElementById('date-picker2');
+     const datePicker3 = document.getElementById('date-picker3');
     datePicker1.specialDates = [
+      new Date(2019, 8, 13)
+    ];
+    datePicker3.specialDates = [
       new Date(2019, 8, 13)
     ];
     datePicker1.weekNames = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
     datePicker2.weekNames = ['C', 'I', 'S', '/', 'T', 'I', 'S'];
 
-    datePicker2.monthNames = ['Ene.', 'Feb.', 'Mar.', 'Abr.', 'May.', 'Jun.', 'Jul.', 'Ago.', 'Sep.', 'Oct.', 'Nov.', 'Dic.']
+    datePicker2.monthNames = ['Ene.', 'Feb.', 'Mar.', 'Abr.', 'May.', 'Jun.', 'Jul.', 'Ago.', 'Sep.', 'Oct.', 'Nov.', 'Dic.'];
+    datePicker2.minDate = new Date('1990-01-01');
+    datePicker2.minDate = new Date('2200-12-31');
+
 
     datePicker1.dateFormat = 'dd-MM-yyyy';
     datePicker1.addEventListener('selected', (event) => {
