@@ -92,11 +92,6 @@ describe('DatePickerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should execute set day OK', () => {
-    component.day = 10;
-    expect(component).toBeTruthy();
-  });
-
   it('should execute get day OK', () => {
     const a = component.day;
     console.log(a);
