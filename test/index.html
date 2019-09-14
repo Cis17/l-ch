@@ -9,7 +9,9 @@
   <h1>Hola sexys esto es lịch!</h1>
 
   <lich-date-picker id="date-picker1"></lich-date-picker>
+  <p id="selected1"></p>
   <lich-date-picker id="date-picker2"></lich-date-picker>
+  <p id="selected2"></p>
 
   <script>
     const datePicker1 = document.getElementById('date-picker1');
@@ -19,6 +21,18 @@
     ];
     datePicker1.weekNames = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
     datePicker2.weekNames = ['C', 'I', 'S', '/', 'T', 'I', 'S'];
+
+    datePicker2.monthNames = ['Ene.', 'Feb.', 'Mar.', 'Abr.', 'May.', 'Jun.', 'Jul.', 'Ago.', 'Sep.', 'Oct.', 'Nov.', 'Dic.']
+
+    datePicker1.dateFormat = 'dd-MM-yyyy';
+    datePicker1.addEventListener('selected', (event) => {
+      console.log(event);
+      document.getElementById('selected1').innerHTML =event.detail;
+    });
+    datePicker2.addEventListener('selected', (event) => {
+      console.log(event);
+      document.getElementById('selected2').innerHTML =event.detail;
+    })
   </script>
 
 
