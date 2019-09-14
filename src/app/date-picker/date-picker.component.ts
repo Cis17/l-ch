@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
-import {formatDate} from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'cc-date-picker',
@@ -24,13 +24,13 @@ export class DatePickerComponent implements OnInit {
   }
 
   @Input()
-   set dateFormat(format: string) {
-     this._format = format;
-   }
+  set dateFormat(format: string) {
+    this._format = format;
+  }
 
-   get dateFormat(): string {
-     return this._format;
-   }
+  get dateFormat(): string {
+    return this._format;
+  }
 
   @Input()
   set rootClass(rootClass: string) {
@@ -161,7 +161,7 @@ export class DatePickerComponent implements OnInit {
   private _minDate = new Date('2018-01-01');
   private _maxDate = new Date('2039-12-31');
   private _weekHeaders = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-  private _monthNames = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dic.'];
+  private _monthNames = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
 
   private _years = [];
   private _year: number;
