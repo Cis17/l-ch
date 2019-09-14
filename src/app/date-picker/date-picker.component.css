@@ -1,44 +1,48 @@
 cc-date-picker input {
   background-repeat: repeat-x;
-  border: 0px solid;
+  border: 0 solid;
 }
 
 table {
   width: 100%;
+  border: none;
 }
-
-.lich-date-picker-basic {}
+.lich-date-picker-menu {
+  font-size: 3em;
+}
+.lich-date-picker-menu input {
+  border: none;
+  margin: 1px;
+}
+.lich-date-picker-basic {
+}
 
 .lich-date-picker-basic button {
   height: 100%;
   width: 100%;
-  border-style: none;
+  border: none ;
 }
 
 .lich-date-picker-basic button:hover {
-  background-color: #AAA;
+  background-color: #75C8CC;
   color: #FFF;
-  -webkit-transition: background-color 500ms linear;
-  -ms-transition: background-color 500ms linear;
-  transition: background-color 500ms linear;
-  font-size: 15px;
 }
 
 .lich-date-picker-year {
-  background-color: #DDDDDD;
-  width: 31%;
+  width: 100%;
+  background-color: #AEDFDB;
   text-align: center;
 }
 
 .lich-date-picker-month {
-  background-color: #DDDDDD;
-  width: 31%;
+  width: 100%;
+  background-color: #AEDFDB;
   text-align: center;
 }
 
 .lich-date-picker-day {
-  background-color: #DDDDDD;
-  width: 31%;
+  width: 100%;
+  background-color: #AEDFDB;
   text-align: center;
 }
 
@@ -103,7 +107,7 @@ table {
 }
 
 .lich-date-picker-special-date {
-  color: blue;
+  background: #FDDBCF;
 }
 
 .lich-date-picker-popup {
@@ -115,8 +119,8 @@ table {
 }
 
 .lich-date-picker-hight-light {
-  background-color: #6A6;
-  color: #FFF;
+  background-color: #75C8CC;
+  color: #FFFFFF;
   -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear;
