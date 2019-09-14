@@ -7,11 +7,6 @@
         <td><input [ngClass]="showPopup && !day && year && month? 'lich-date-picker-hight-light':''" type="text" name="day" class="lich-date-picker-day" placeholder="DD" [value]="day ? day : ''" (click)="day=undefined" readonly></td>
       </tr>
     </table>
-    <p *ngIf="selectedDate && isSpecialDate(selectedDate)">Special Date Selected </p>
-    <div *ngIf="selectedDate">
-      <p>{{dateFormat}}</p>
-      <p>{{ finalDate | date: dateFormat }}</p>
-    </div>
   </div>
 
   <div class="lich-date-picker-popup" *ngIf="showPopup">

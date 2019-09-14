@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'cc-date-picker',
@@ -23,14 +24,13 @@ export class DatePickerComponent implements OnInit {
   }
 
   @Input()
-  dateFormat: string;
-  // set dateFormat(format: string) {
-  //   this._format = format;
-  // }
-  //
-  // get dateFormat(): string {
-  //   return this._format;
-  // }
+   set dateFormat(format: string) {
+     this._format = format;
+   }
+
+   get dateFormat(): string {
+     return this._format;
+   }
 
   @Input()
   set rootClass(rootClass: string) {
@@ -112,11 +112,14 @@ export class DatePickerComponent implements OnInit {
     this._day = day;
     if (day !== undefined) {
       this.showPopup = false;
+      this.selected.emit(formatDate(new Date(this.year, this.month - 1, this.day), this.dateFormat, 'en-US'));
+      console.log(formatDate(new Date(this.year, this.month - 1, this.day), this.dateFormat, 'en-US'));
     } else {
       this.showPopup = true;
     }
-    this.finalDate = new Date(this.year, this.month - 1, day, 0, 0, 0, 0);
   }
+
+  @Output() selected = new EventEmitter<string>();
 
   get day() {
     return this._day;
@@ -164,11 +167,9 @@ export class DatePickerComponent implements OnInit {
   private _year: number;
   private _month: number;
   private _day: number;
-  private _format: string;
+  private _format = 'yyyy-MM-dd';
 
   private _specialDates = [];
-
-  other = 'dd-MM-yyyy';
 
 
   constructor() {
