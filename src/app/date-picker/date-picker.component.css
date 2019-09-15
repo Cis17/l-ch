@@ -3,6 +3,10 @@ cc-date-picker input {
   border: 0 solid;
 }
 
+*:focus {
+  outline: none;
+}
+
 table {
   width: 100%;
   border: none;
@@ -26,6 +30,9 @@ table {
 .lich-date-picker-basic button:hover {
   background-color: #75C8CC;
   color: #FFF;
+  -webkit-transition: background-color 1s ease-out, color 250ms ease-out;
+  -ms-transition: background-color 1s ease-out, color 250ms ease-out;
+  transition: background-color 1s ease-out, color 250ms ease-out;
 }
 
 .lich-date-picker-year {
@@ -118,10 +125,19 @@ table {
   text-align: center;
 }
 
-.lich-date-picker-hight-light {
+.lich-date-picker-hidden {
+  display: none;
+  -webkit-animation-direction: unset;
+  -moz-animation-direction: unset;
+  -o-animation-direction: unset;
+  animation-direction: unset;
+}
+
+.lich-date-picker-highlight {
   background-color: #75C8CC;
   color: #FFFFFF;
   -webkit-transition: background-color 500ms linear;
   -ms-transition: background-color 500ms linear;
   transition: background-color 500ms linear;
+
 }

@@ -2,14 +2,14 @@
   <div class="lich-date-picker-menu">
     <table>
       <tr>
-        <td><input [ngClass]="showPopup && !year ? 'lich-date-picker-hight-light':''" type="text" name="year" class="lich-date-picker-year" placeholder="YYYY" [value]="year ? year : ''" (click)="cleanYear()" readonly></td>
-        <td><input [ngClass]="showPopup && !month && year ? 'lich-date-picker-hight-light':''" type="text" name="month" class="lich-date-picker-month" placeholder="MM" [value]="month ? monthName: ''" (click)="month=undefined" readonly></td>
-        <td><input [ngClass]="showPopup && !day && year && month? 'lich-date-picker-hight-light':''" type="text" name="day" class="lich-date-picker-day" placeholder="DD" [value]="day ? day : ''" (click)="day=undefined" readonly></td>
+        <td><input [ngClass]="showPopup && !year ? 'lich-date-picker-highlight':''" type="text" name="year" class="lich-date-picker-year" placeholder="YYYY" [value]="year ? year : ''" (click)="cleanYear()" readonly></td>
+        <td><input [ngClass]="showPopup && !month && year ? 'lich-date-picker-highlight':''" type="text" name="month" class="lich-date-picker-month" placeholder="MM" [value]="month ? monthName: ''" (click)="month=undefined" readonly></td>
+        <td><input [ngClass]="showPopup && !day && year && month? 'lich-date-picker-highlight':''" type="text" name="day" class="lich-date-picker-day" placeholder="DD" [value]="day ? day : ''" (click)="day=undefined" readonly></td>
       </tr>
     </table>
   </div>
 
-  <div class="lich-date-picker-popup" *ngIf="showPopup">
+  <div class="lich-date-picker-popup" [ngClass]="showPopup ? '':'lich-date-picker-hidden'">
 
     <div *ngIf="!year && !month">
       <table>
